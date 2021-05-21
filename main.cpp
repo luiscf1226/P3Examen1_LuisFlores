@@ -35,7 +35,7 @@ int menu(){
 int main(int argc, char** argv) {
 	HTHPlus* ht=new HTHPlus();
 	int main=0;
-	while(main!=9){
+	while(main!=8){
 		switch(main=menu()){
 			case 1:{
 	
