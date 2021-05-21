@@ -23,10 +23,10 @@ int menu(){
 	
 	while(true){
 		cout<<"MENU"<<endl;
-		cout<<"1. Agregar pelicula "<<endl<<"2. Modificar Pelicula "<<endl<<"3. Eliminar Pelicula"<<endl<<"4. Imprimir por Genero"<<endl<<"5. Buscar Pelicula"<<endl<<"6. imprimir segun valoracion"<<endl<<"7. Salir"<<endl;
+		cout<<"1. Agregar pelicula "<<endl<<"2. Modificar Pelicula "<<endl<<"3. Eliminar Pelicula"<<endl<<"4. Imprimir Peliculas"<<endl<<"5. Imprimir por Genero"<<endl<<"6. Buscar" <<endl<<"7. Imprimir por Valoracion"<<endl<<"8. Salir"<<endl;
 		int valor;
 		cin>>valor;
-		if(valor > 0&& valor < 8)
+		if(valor > 0&& valor < 9)
 			return valor;
 		
 	}
@@ -35,7 +35,7 @@ int menu(){
 int main(int argc, char** argv) {
 	HTHPlus* ht=new HTHPlus();
 	int main=0;
-	while(main!=7){
+	while(main!=9){
 		switch(main=menu()){
 			case 1:{
 	
@@ -53,19 +53,9 @@ int main(int argc, char** argv) {
 				break;
 			}//1
 			case 2:{
-				vector <Pelicula*> lista=ht->getVector();
-				for(int i=0;i<lista.size();i++){
-					Pelicula *p=lista.at(i);
-					cout<<"Pelicula: "<<i <<endl;
-					cout<<"Titulo: "<< p->getTitulo()<<endl;
-					cout<<"Director: "<<p->getDirector()<<endl;
-					cout<<"Genero:"<<p->getGenero()<<endl;
-					cout<<"Valoracion: "<<p->getValoracion()<<endl;
-				}
 				int pos;
 				cout<<"posicion a modificar: ";
 				cin>>pos;
-				
 				int main1=0;
 				while(main1!=5){
 					switch(main1=submenu()){
@@ -102,22 +92,29 @@ int main(int argc, char** argv) {
 				break;
 			}//3
 			case 4:{
-				
+				ht->imprimir();
 				
 				break;
 			}//4
 			case 5:{
-				
+				ht->imprimirGenero();
 				break;
 			}//5
 			case 6:{
-				
+				string word;
+				cout<<"ingrese palabra a buscar: ";
+				cin>>word;
+				ht->buscarPelicula(word);
 				break;
 			}//6
 			case 7:{
-				cout<<"saliendo"<<endl;
+				ht->imprimirValoracion();
 				break;
 			}//7
+			case 8:{
+				cout<<"saliendo"<<endl;
+				break;
+			}
 		}//sitwch
 	}//while
 	

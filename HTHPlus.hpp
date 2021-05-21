@@ -22,5 +22,6 @@ class HTHPlus {
 	void imprimirGenero();
 	void buscarPelicula(string);
 	void imprimirValoracion();
+	void imprimir();
 };
 #endif
